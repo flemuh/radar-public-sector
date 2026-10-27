@@ -1,8 +1,17 @@
 # SpeedLora Radar
 
+[![CI](https://github.com/flemuh/radar-public-sector/actions/workflows/ci.yml/badge.svg)](https://github.com/flemuh/radar-public-sector/actions/workflows/ci.yml)
+[![Licença: MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-blue.svg)](LICENSE)
+![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)
+
 Monitor de concursos públicos de TI (repositório `radar-public-sector`) a partir de **editais e páginas oficiais**. Um concurso só aparece como confirmado quando o edital oficial foi baixado, contém um cargo de TI e as datas e o salário estão no mesmo documento.
 
 Você pode usar do seu jeito: uma **instância pública** só de leitura para qualquer pessoa, ou uma **instância privada** com login, senha e MFA só para você.
+
+
+![Demonstração do SpeedLora Radar: lista de concursos com selo de edital validado, filtros e link para o edital oficial](docs/img/demo.gif)
+
+*Demonstração (cerca de 35 s): concursos de TI com status, filtros de salário e estado e acesso ao edital oficial. Cada dado confirmado vem do edital; o que ainda não foi conferido aparece como "não conferido".*
 
 ---
 
@@ -98,6 +107,15 @@ Copie o arquivo gerado para fora do servidor. Não inclua `.env` nem a chave MFA
 **Atualizar:** `git pull && docker compose up -d --build`. Cada tag `vX.Y.Z` publica também a imagem pronta `ghcr.io/flemuh/radar-public-sector` no GitHub, se você preferir não construir localmente. Migrações rodam sozinhas e fazem backup antes de alterar o banco.
 
 **Versão e esquema:** `docker compose exec concurso-radar python -m app.manage version`.
+
+---
+
+
+## Limites
+
+- **Só fontes oficiais.** Quando um site bloqueia coleta automática (`robots.txt`, 403 ou 429), o radar **não contorna o bloqueio**: ele registra a cobertura parcial na tela *Fontes* e segue para as outras. Por isso a lista é uma amostra, não um censo de todos os concursos do país.
+- **Confirmado é raro de propósito.** Só vira "Edital validado" o concurso cujo edital foi baixado, tem cargo de TI e traz datas e salário no mesmo documento. O resto aparece como "A conferir".
+- **Sem garantia de cobertura.** Confira sempre o edital oficial antes de se inscrever.
 
 ---
 
