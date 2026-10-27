@@ -7,3 +7,10 @@ __pycache__/
 *.sqlite3-shm
 *.sqlite3-wal
 .ruff_cache/
+.env.*
+!.env.example
+.DS_Store
+node_modules/
+backups/
+*.bak
+*.zip

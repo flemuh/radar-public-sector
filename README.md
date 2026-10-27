@@ -1,10 +1,17 @@
 # SpeedLora Radar
 
-> **Teste a versão completa em [radar.speedlora.app](https://radar.speedlora.app)**
+[![CI](https://github.com/flemuh/radar-public-sector/actions/workflows/ci.yml/badge.svg)](https://github.com/flemuh/radar-public-sector/actions/workflows/ci.yml)
+[![Licença: MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-blue.svg)](LICENSE)
+![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)
 
 Monitor de concursos públicos de TI (repositório `radar-public-sector`) a partir de **editais e páginas oficiais**. Um concurso só aparece como confirmado quando o edital oficial foi baixado, contém um cargo de TI e as datas e o salário estão no mesmo documento.
 
 Você pode usar do seu jeito: uma **instância pública** só de leitura para qualquer pessoa, ou uma **instância privada** com login, senha e MFA só para você.
+
+
+![Demonstração do SpeedLora Radar: lista de concursos com selo de edital validado, filtros e link para o edital oficial](docs/img/demo.gif)
+
+*Demonstração (cerca de 35 s): concursos de TI com status, filtros de salário e estado e acesso ao edital oficial. Cada dado confirmado vem do edital; o que ainda não foi conferido aparece como "não conferido".*
 
 ---
 
@@ -103,6 +110,15 @@ Copie o arquivo gerado para fora do servidor. Não inclua `.env` nem a chave MFA
 
 ---
 
+
+## Limites
+
+- **Só fontes oficiais.** Quando um site bloqueia coleta automática (`robots.txt`, 403 ou 429), o radar **não contorna o bloqueio**: ele registra a cobertura parcial na tela *Fontes* e segue para as outras. Por isso a lista é uma amostra, não um censo de todos os concursos do país.
+- **Confirmado é raro de propósito.** Só vira "Edital validado" o concurso cujo edital foi baixado, tem cargo de TI e traz datas e salário no mesmo documento. O resto aparece como "A conferir".
+- **Sem garantia de cobertura.** Confira sempre o edital oficial antes de se inscrever.
+
+---
+
 ## Estrutura
 
 ```
@@ -116,7 +132,7 @@ tests/        testes automatizados
 
 ## English summary
 
-**SpeedLora Radar** monitors Brazilian public-sector IT job notices from official sources. A notice is marked as confirmed only when the official document was downloaded, contains an IT role, and the dates and salary appear in the same text. Full version: [radar.speedlora.app](https://radar.speedlora.app).
+**SpeedLora Radar** monitors Brazilian public-sector IT job notices from official sources. A notice is marked as confirmed only when the official document was downloaded, contains an IT role, and the dates and salary appear in the same text.
 
 **Run it with Docker:**
 
