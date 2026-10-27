@@ -8,11 +8,6 @@ Monitor de concursos públicos de TI (repositório `radar-public-sector`) a part
 
 Você pode usar do seu jeito: uma **instância pública** só de leitura para qualquer pessoa, ou uma **instância privada** com login, senha e MFA só para você.
 
-
-![Demonstração do SpeedLora Radar: lista de concursos com selo de edital validado, filtros e link para o edital oficial](docs/img/demo.gif)
-
-*Demonstração (cerca de 35 s): concursos de TI com status, filtros de salário e estado e acesso ao edital oficial. Cada dado confirmado vem do edital; o que ainda não foi conferido aparece como "não conferido".*
-
 ---
 
 ## Instalação com Docker
